@@ -34,6 +34,10 @@ contract TweetMarket is ERC721 {
     _safeMint( owner, _status );
   }
 
+  function updateTwitterUserName( string memory _twitterUser ) public onlyOwner {
+    twitterUser = _twitterUser;
+  }
+
   function _baseURI() internal view override returns (string memory) {
     return concat(concat("https://twitter.com/", twitterUser), "status/");
   }
